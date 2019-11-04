@@ -1,5 +1,4 @@
-{{#file-upload name="photos"
-               accept="image/*"
+{{#file-upload name="file"
                onfileadd=(action "uploadImage") as |queue|}}
   <a class="button">
     {{#if queue.files.length}}

@@ -4,7 +4,7 @@
 <div class="ui middle aligned center aligned grid">
   <div class="column">
     <h2 id="head" class="ui center aligned header">
-      <img class="image" src="" alt="logo"/> Login to your channel
+      <img class="image" src="" alt="logo"> Login to your channel
     </h2>
     <form class="ui large form">
       <div class="ui stacked inverted segment">
@@ -26,10 +26,10 @@
             {{ui-checkbox class="toggle" label="Show password" checked=show onChange=(action (mut show))}}
           </div>
         </div><br>
-        <div id="logbutton" class="ui fluid large {{if loader "loading"}} submit button" {{action "login"}}>Login</div>
+        <button id="logbutton"  class="ui fluid large {{if loader "loading"}} submit button" {{action "login"}}>Login</button>
       </div>
       <div class="ui error message"></div>
     </form>
-    <div class="ui message inverted">Don't have an account? {{#link-to 'sign-up'}} Register{{/link-to}}</div>
+    <div class="ui message inverted">Don't have an account? {{#link-to "sign-up"}} Register{{/link-to}}</div>
   </div>
 </div>

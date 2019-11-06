@@ -6,6 +6,7 @@ import { inject as service } from '@ember/service';
 
 export default Controller.extend({
   toastr: service('toast'),
+  router: service(),
 
   init(){
     this._super(...arguments)
@@ -33,20 +34,21 @@ export default Controller.extend({
 
     try {
       const { image, video } = files;
-      image.readAsDataURL().then(function (url) {
-        set(meta, 'url', url);
-      });
-      image.readAsDataURL().then(function (url) {
-        set(meta, 'url', url);
-      });
+      // image.readAsDataURL().then(function (url) {
+      //   set(meta, 'iurl', url);
+      // });
+      // video.readAsDataURL().then(function (url) {
+      //   set(meta, 'vurl', url);
+      // });
 
       const videoRes = yield video.upload(`${ENV.host}/api/upload`);
       const imageRes = yield image.upload(`${ENV.host}/api/upload`);
-      set(meta, 'url', response.headers.Location);
+      // set(meta, 'url', response.headers.Location);
       
       console.log(this.model);
       
       // yield this.model.save();
+      this.router.transitionTo('index')
     } catch (e) {
       console.error(e);
     }

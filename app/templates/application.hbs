@@ -6,8 +6,12 @@
       {{/link-to}}
       <div class="right menu">
         {{#if session.isAuthenticated}}
-          <a href="" class="item">Upload</a>
-          <a href="" class="item">My-Channel</a>
+          {{#link-to "upload" class="item"}}
+            Upload Video
+          {{/link-to}}
+          {{#link-to "my-account" class="item"}}
+            My Channel
+          {{/link-to}}
           <a href="" role="button" class="item" {{action "invalidate"}}>
             Logout
           </a>

@@ -1,10 +1,42 @@
-{{#file-upload name="file"
-               onfileadd=(action "uploadImage") as |queue|}}
-  <a class="button">
-    {{#if queue.files.length}}
-      Uploading...
-    {{else}}
-      Upload file
-    {{/if}}
-  </a>
-{{/file-upload}}
+<h1 id="white" class="ui header">Upload New Video</h1>
+<br>
+
+{{#if files.video}}
+  <button class="ui inverted disabled button">{{files.video.name}} is ready <i class="fas fa-thumbs-up"></i> </button>
+{{else}}
+  {{#file-upload name="video"
+                 accept="video/*"
+                 onfileadd=(action "uploadVideo") as |queue|}}
+    <a role="button" id="logbutton" class="ui {{if load "loading"}} button">
+      Upload Video
+    </a>
+  {{/file-upload}}
+{{/if}}
+
+{{#if files.image}}
+  <button class="ui inverted disabled button">{{files.image.name}} is ready <i class="fas fa-thumbs-up"></i> </button>
+{{else}}
+  {{#file-upload name="image"
+                 accept="image/*"
+                 onfileadd=(action "uploadImage") as |queue|}}
+    <a role="button" id="logbutton" class="ui {{if load "loading"}} button">
+      Upload Thumbnail
+    </a>
+  {{/file-upload}}
+{{/if}}
+
+<br>
+<br>
+<div class="ui compact form">
+  <div class="field">
+    <label for="" id="white">Title of Video</label>
+    {{input value=model.title placeholder="Enter title..." maxlength="100"}}
+  </div>
+  <div class="field">
+    <label for=""  id="white">Description</label>
+    {{textarea value=model.description placeholder="Enter description..." maxlength="5000"}}
+  </div>
+</div>
+<br>
+<br>
+<button id="logbutton" class="ui {{if load "loading"}} {{if (and files.image files.video model.title model.description) "" "disabled"}} button" {{action "finalize"}}>Post it !</button>

@@ -89,11 +89,20 @@ footer p {
   color: white;
 }
 
-input {
+input  {
   background-color: black !important;
   color: white !important;
 }
 
 #regi {
   color: white
+}
+
+#white {
+  color: white;
+}
+
+textarea {
+  background-color: black !important;
+  color: white !important;
 }

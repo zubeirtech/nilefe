@@ -8,4 +8,6 @@ export default DS.Model.extend({
   thumbnail_url: DS.attr(),
   video_url: DS.attr(),
   views: DS.attr(),
+  likes: DS.hasMany('like', { async: false }),
+  comments: DS.hasMany('comment', { async: false })
 });

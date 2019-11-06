@@ -32,22 +32,17 @@ export default Controller.extend({
 
     set(files.video, 'name', files.video.id + '.' + files.video.extension)
 
+    set(this.model, 'thumbnail_url', files.image.name);
+    set(this.model, 'video_url', files.video.name);
+
     try {
       const { image, video } = files;
-      // image.readAsDataURL().then(function (url) {
-      //   set(meta, 'iurl', url);
-      // });
-      // video.readAsDataURL().then(function (url) {
-      //   set(meta, 'vurl', url);
-      // });
 
-      const videoRes = yield video.upload(`${ENV.host}/api/upload`);
-      const imageRes = yield image.upload(`${ENV.host}/api/upload`);
-      // set(meta, 'url', response.headers.Location);
+      yield video.upload(`${ENV.host}/api/upload`);
+      yield image.upload(`${ENV.host}/api/upload`);
       
-      console.log(this.model);
-      
-      // yield this.model.save();
+      yield this.model.save();
+      files = {}
       this.router.transitionTo('index')
     } catch (e) {
       console.error(e);

@@ -1,1 +1,32 @@
-{{outlet}}
+<div class="ui three stackable link cards">
+  {{#each model as |post|}}
+    <div class="ui card">
+      <div class="image">
+        <a class="ui violet left corner label">
+          <i class="play icon"></i>
+        </a>
+        <img class="visible content" src="http://localhost:5000/api/images?image={{post.thumbnail_url}}">
+      </div>
+      <div class="content">
+        <div id="white" class="header">{{post.title}}</div>
+        <div class="meta">
+          <a id="white" >Friends</a>
+        </div>
+      </div>
+      <div class="extra content">
+        <span class="right floated author">
+          {{post.channel.channelname}}
+        </span>
+        <span>
+          <i class="eye icon"></i>
+          {{post.views}} 
+        </span>
+      </div>
+    </div>
+  {{/each}} 
+  <br>
+</div>
+<br>
+<br>
+<br>
+<br>

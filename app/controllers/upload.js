@@ -24,11 +24,7 @@ export default Controller.extend({
     set(meta, 'image_filesize', get(files.image, 'size'));
     set(meta, 'image_file_id', get(files.image, 'id'));
 
-    if(files.image.extension === "jpeg"){
-      set(files.image, 'name', files.image.id + ".jpg")
-    } else {
-      set(files.image, 'name', files.image.id + '.' + files.image.extension)
-    }
+    set(files.image, 'name', files.image.id + '.' + files.image.extension)
 
     set(files.video, 'name', files.video.id + '.' + files.video.extension)
 

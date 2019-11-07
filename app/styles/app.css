@@ -106,3 +106,12 @@ textarea {
   background-color: black !important;
   color: white !important;
 }
+
+.content {
+  color: white !important;
+  background-color: black !important;
+}
+
+#white {
+  color: white !important;
+}

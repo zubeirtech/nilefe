@@ -5,7 +5,7 @@
   <button class="ui inverted disabled button">{{files.video.name}} is ready <i class="fas fa-thumbs-up"></i> </button>
 {{else}}
   {{#file-upload name="video"
-                 accept="video/*"
+                 accept="video/mp4"
                  onfileadd=(action "uploadVideo") as |queue|}}
     <a role="button" id="logbutton" class="ui {{if load "loading"}} button">
       Upload Video

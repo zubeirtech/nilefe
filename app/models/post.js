@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  creator: DS.belongsTo('channel', { async: false}),
+  channel: DS.belongsTo({ async: false}),
   title: DS.attr(),
   description: DS.attr(),
   meta: DS.attr(),

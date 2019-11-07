@@ -1,6 +1,6 @@
 <div class="ui three stackable link cards">
   {{#each model as |post|}}
-    <div class="ui card">
+    {{#link-to 'watch.video' post.id class="ui card"}}
       <div class="image">
         <a class="ui violet left corner label">
           <i class="play icon"></i>
@@ -22,9 +22,8 @@
           {{post.views}} 
         </span>
       </div>
-    </div>
-  {{/each}} 
-  <br>
+    {{/link-to}}
+  {{/each}}
 </div>
 <br>
 <br>

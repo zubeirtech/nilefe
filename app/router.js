@@ -12,6 +12,10 @@ Router.map(function() {
   this.route('about');
   this.route('upload');
   this.route('my-account');
+
+  this.route('watch', function() {
+    this.route('video', { path: ':post_id' });
+  });
 });
 
 export default Router;

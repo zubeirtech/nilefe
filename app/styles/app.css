@@ -122,7 +122,7 @@ textarea {
 
 @media only screen and (max-width: 768px) {
   #player-overlay {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;

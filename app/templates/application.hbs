@@ -35,15 +35,15 @@
   <div id="nav" class="ui bottom fixed borderless fluid inverted labeled three item icon menu">
     {{#if session.isAuthenticated}}
       {{#link-to "index" class="item"}}
-        <i class="fas fa-home fa-2x"></i>
+        <i class="home icon"></i>
         Home
       {{/link-to}}
       {{#link-to "upload" class="item"}}
-        <i class="fas fa-upload fa-2x"></i>
+        <i class="upload icon"></i>
         Upload
       {{/link-to}}
       {{#link-to "my-account" class="item"}}
-        <i class="fas fa-user fa-2x"></i>
+        <i class="user outline icon"></i>
         My Account
       {{/link-to}}
     {{else}}

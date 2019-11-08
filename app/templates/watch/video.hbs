@@ -23,4 +23,6 @@
     {{model.views}} views - {{moment-from-now model.created_at}}
   </div>
 </h1>
-<br>
+<button class="ui tiny {{if model.liked "blue" ""}} icon button" {{action "like"}}>
+  <i class="thumbs up outline icon"></i> like
+</button> {{model.likes.length}} {{if (eq model.likes.length 1) "like" "likes"}}

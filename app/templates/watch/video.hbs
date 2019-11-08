@@ -25,4 +25,15 @@
 </h1>
 <button class="ui tiny {{if model.liked "blue" ""}} icon button" {{action "like"}}>
   <i class="thumbs up outline icon"></i> like
-</button> {{model.upvotes.length}} {{if (eq model.upvotes.length 1) "like" "likes"}}
+</button> {{model.upvotes.length}} {{if (eq model.upvotes.length 1) "like" "likes"}} &nbsp; &nbsp; &nbsp; <img class="ui avatar image" src="http://localhost:5000/api/images?image={{model.channel.image_url}}" alt="profile">
+<span>{{model.channel.channelname}}</span> <br> <br>
+
+{{#ui-accordion as |execute|}}
+  <div class="title" id="white">
+    <i class="dropdown icon"></i>
+    Description
+  </div>
+  <div class="content">
+    {{model.description}}
+  </div>
+{{/ui-accordion}}

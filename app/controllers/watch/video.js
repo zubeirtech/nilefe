@@ -16,6 +16,7 @@ export default Controller.extend({
             });
             await record.destroyRecord();
             set(this.model, 'liked', false);
+            set(this.model.upvotes, 'length', this.model.upvotes.length -1);
           } else {
             const newLike = await this.store.createRecord('upvote', {
               post_id: this.model.id,
@@ -23,6 +24,7 @@ export default Controller.extend({
             })
             await newLike.save();
             set(this.model, 'liked', true);
+            set(this.model.upvotes, 'length', this.model.upvotes.length + 1);
           }
         } catch (error) {
           console.log(error);

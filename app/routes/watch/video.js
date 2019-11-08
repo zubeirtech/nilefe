@@ -11,9 +11,9 @@ export default Route.extend({
       try {
         const getCurrentUser = await this.store.queryRecord('channel', {
           access_token: this.session.data.authenticated.access_token,
-        })
+        });
         set(model, 'currentUser', getCurrentUser)
-        const record = await this.store.queryRecord('like', {
+        const record = await this.store.queryRecord('upvote', {
           channel_id: model.currentUser.id
         });
         if (record) {

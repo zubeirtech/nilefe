@@ -11,15 +11,15 @@ export default Controller.extend({
       if(this.session.isAuthenticated) {
         try {
           if(this.model.liked) {
-            const record = await this.store.queryRecord('like', {
+            const record = await this.store.queryRecord('upvote', {
               channel_id: this.model.currentUser.id
             });
             await record.destroyRecord();
             set(this.model, 'liked', false);
           } else {
-            const newLike = await this.store.createRecord('like', {
-              post: this.model,
-              channel: this.model.channel
+            const newLike = await this.store.createRecord('upvote', {
+              post_id: this.model.id,
+              channel_id: this.model.currentUser.id
             })
             await newLike.save();
             set(this.model, 'liked', true);

@@ -115,3 +115,23 @@ textarea {
 #white {
   color: white !important;
 }
+
+#lgrey {
+  color: lightgrey 
+}
+
+@media only screen and (max-width: 768px) {
+  #player-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    z-index: 999;
+  }
+  
+  video {
+    display: block;
+    width: 100%;
+  }
+}

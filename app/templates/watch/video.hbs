@@ -1,1 +1,26 @@
-{{outlet}}
+<div class="ui mobile only padded grid">
+  <div id="player-overlay">
+    <video controls poster="http://localhost:5000/api/images?image={{model.thumbnail_url}}">
+      <source src="http://localhost:5000/api/videos?video={{model.video_url}}"  type="video/mp4">
+    </video>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
+
+<div class="ui tablet computer only padded grid">
+  <video controls style="width: 100%" poster="http://localhost:5000/api/images?image={{model.thumbnail_url}}">
+    <source src="http://localhost:5000/api/videos?video={{model.video_url}}"  type="video/mp4">
+  </video>
+</div>
+
+<h1 class="ui medium header" id="white">
+  {{model.title}}
+  <div class="sub header" id="lgrey">
+    {{model.views}} views - {{moment-from-now model.created_at}}
+  </div>
+</h1>
+<br>

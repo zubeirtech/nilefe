@@ -9,5 +9,6 @@ export default DS.Model.extend({
   video_url: DS.attr(),
   views: DS.attr(),
   likes: DS.hasMany('like', { async: false }),
-  comments: DS.hasMany('comment', { async: false })
+  comments: DS.hasMany('comment', { async: false }),
+  created_at: DS.attr()
 });

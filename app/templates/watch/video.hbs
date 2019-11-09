@@ -37,3 +37,35 @@
     {{model.description}}
   </div>
 {{/ui-accordion}}
+<br>
+<div class="ui comments">
+  <h3 class="ui dividing header" id="white">Comments</h3>
+  <form class="ui reply form">
+    <div class="field">
+      {{textarea value=newComment placeholder="Enter comment..."}}
+    </div>
+    <div class="ui blue labeled submit icon button" id="logbutton" {{action "comment"}}>
+      <i class="icon edit"></i> Add Reply
+    </div>
+  </form>
+  <br>
+  <div class="comment">
+    {{#each model.comments as |comment|}}
+      <a class="avatar">
+        <img src="http://localhost:5000/api/images?image={{model.channel.image_url}}">
+      </a>
+      <div class="content">
+        <a class="author">{{comment.channel.channelname}}</a>
+        <div class="metadata">
+          <span class="date" id="lgrey">{{moment-from-now comment.created_at}}</span>
+        </div>
+        <div class="text" id="white">
+          {{comment.comment}}
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
+<br>
+<br>
+<br>

@@ -135,3 +135,11 @@ textarea {
     width: 100%;
   }
 }
+
+#blue {
+  color: lightslategrey
+}
+
+.slgrey {
+  color: #1678C2 !important; 
+}

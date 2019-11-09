@@ -5,5 +5,6 @@ export default DS.Model.extend({
   channel: DS.belongsTo('channel', { async: false }),
   post_id: DS.attr(),
   channel_id: DS.attr(),
-  comment: DS.attr()
+  comment: DS.attr(),
+  created_at: DS.attr()
 });

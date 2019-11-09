@@ -52,10 +52,12 @@
   <div class="comment">
     {{#each model.comments as |comment|}}
       <a class="avatar">
-        <img src="http://localhost:5000/api/images?image={{model.channel.image_url}}">
+        <img src="http://localhost:5000/api/images?image={{comment.channel.image_url}}">
       </a>
       <div class="content">
-        <a class="author">{{comment.channel.channelname}}</a>
+        {{#link-to "channels.channel" class="author slgrey"}}
+          {{comment.channel.channelname}}
+        {{/link-to}}
         <div class="metadata">
           <span class="date" id="lgrey">{{moment-from-now comment.created_at}}</span>
         </div>

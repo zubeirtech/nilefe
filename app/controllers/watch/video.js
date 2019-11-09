@@ -41,7 +41,8 @@ export default Controller.extend({
           const record = await this.store.createRecord('comment', {
             post_id: this.model.id,
             channel_id: this.model.currentUser.id,
-            comment: this.newComment
+            comment: this.newComment,
+            channel: this.model.currentUser
           });
 
           await record.save();

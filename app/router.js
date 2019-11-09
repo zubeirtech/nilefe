@@ -16,6 +16,10 @@ Router.map(function() {
   this.route('watch', function() {
     this.route('video', { path: ':post_id' });
   });
+
+  this.route('channels', function() {
+    this.route('channel');
+  });
 });
 
 export default Router;

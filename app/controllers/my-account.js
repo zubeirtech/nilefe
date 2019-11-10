@@ -9,6 +9,7 @@ export default Controller.extend({
   toastr: service('toast'),
 
   init() {
+    this._super(...arguments);
     this.files = {},
     this.profile = true
   }, 

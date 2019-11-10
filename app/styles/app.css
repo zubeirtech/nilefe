@@ -143,3 +143,11 @@ textarea {
 .slgrey {
   color: #1678C2 !important; 
 }
+
+#stopper {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 600px;
+  color: white
+}

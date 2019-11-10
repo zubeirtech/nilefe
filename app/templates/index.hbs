@@ -1,16 +1,25 @@
-<div class="ui three stackable link cards">
+<div class="ui three special stackable link cards">
   {{#each model as |post|}}
     {{#link-to 'watch.video' post.id class="ui card"}}
-      <div class="image">
-        <a class="ui violet left corner label">
-          <i class="play icon"></i>
-        </a>
+      <div class="blurring dimmable image">
+        <div class="ui dimmer">
+          <div class="content">
+            <div class="center">
+              {{#link-to "watch.video" post.id}}
+                <div class="ui inverted button">Play Video</div>
+              {{/link-to}}
+            </div>
+          </div>
+        </div>
         <img class="visible content" src="http://localhost:5000/api/images?image={{post.thumbnail_url}}">
       </div>
       <div class="content">
         <div id="white" class="header">{{post.title}}</div>
         <div class="meta">
-          <a id="white" >Friends</a>
+          <a id="lgrey" >{{moment-from-now post.created_at}}</a>
+        </div>
+        <div class="description" id="stopper">
+          {{post.description}}
         </div>
       </div>
       <div class="extra content">
@@ -29,3 +38,8 @@
 <br>
 <br>
 <br>
+<script>
+  $('.special.cards .image').dimmer({
+    on: 'hover'
+  });
+</script>

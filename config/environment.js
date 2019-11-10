@@ -24,9 +24,9 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-    ENV.host = 'http://localhost:5000',
+    ENV.host = 'https://api-thenile.herokuapp.com/',
     ENV['ember-simple-auth'] = {
-      serverTokenEndpoint: 'http://localhost:5000/api/auth',
+      serverTokenEndpoint: 'https://api-thenile.herokuapp.com/api/auth',
       routeAfterAuthentication: 'index'
     };
     ENV.contentSecurityPolicy = {
@@ -41,6 +41,11 @@ module.exports = function(environment) {
   }
 
   if (environment === 'test') {
+    ENV.host = 'https://api-thenile.herokuapp.com/',
+    ENV['ember-simple-auth'] = {
+      serverTokenEndpoint: 'https://api-thenile.herokuapp.com/api/auth',
+      routeAfterAuthentication: 'index'
+    };
     // Testem prefers this...
     ENV.locationType = 'none';
 
@@ -53,6 +58,11 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.host = 'https://api-thenile.herokuapp.com/',
+    ENV['ember-simple-auth'] = {
+      serverTokenEndpoint: 'https://api-thenile.herokuapp.com/api/auth',
+      routeAfterAuthentication: 'index'
+    };
     // here you can enable a production-specific feature
   }
 

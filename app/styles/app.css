@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap');
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: grayscale;
   background-color: #282828 !important;
   color: white !important;
+  font-family: 'Open Sans', sans-serif !important;
 }
 #sidebar {
   position: fixed;
@@ -150,4 +154,8 @@ textarea {
   text-overflow: ellipsis;
   max-width: 600px;
   color: white
+}
+
+.header {
+  font-family: 'Montserrat', sans-serif !important;
 }

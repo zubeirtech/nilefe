@@ -1,3 +1,12 @@
+<div class="ui mobile only padded grid">
+  <div class="ui medium image">
+    <img src="assets/logo_text.png" alt="logo">
+  </div>
+</div>
+<br>
+<br>
+<h1 class="ui header" id="white">Videos</h1>
+<br>
 <div class="ui three special stackable link cards">
   {{#each model as |post|}}
     {{#link-to 'watch.video' post.id class="ui card"}}

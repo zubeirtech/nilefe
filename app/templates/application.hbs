@@ -2,7 +2,7 @@
   <div id="nav" class="ui inverted borderless top fixed fluid menu massive">
     <div class="ui container">
       {{#link-to "index" class="header item"}}
-        The Nile
+        <img src="assets/logo.png" alt="header_logo"> &nbsp; The Nile
       {{/link-to}}
       <div class="right menu">
         {{#if session.isAuthenticated}}
@@ -61,8 +61,6 @@
     {{/if}}
   </div>
 </div>
-<br>
-<br>
 <br>
 <div class="ui container">
   {{outlet}}

@@ -6,6 +6,7 @@ import { set, get } from '@ember/object';
 
 export default Controller.extend({
   session: service(),
+  toastr: service('toast'),
 
   init() {
     this.files = {},
@@ -42,6 +43,15 @@ export default Controller.extend({
 
     save() {
       this.model.save();
+    },
+
+    async delete(post) {
+      try {
+        await post.destroyRecord()
+      } catch (error) {
+        console.log(error);
+        this.toastr.error('Something went wrong', 'Error');
+      }
     }
   }
 });

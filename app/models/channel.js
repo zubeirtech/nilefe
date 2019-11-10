@@ -6,5 +6,6 @@ export default DS.Model.extend({
   firstname: DS.attr(),
   lastname: DS.attr(),
   biography: DS.attr(),
-  image_url: DS.attr()
+  image_url: DS.attr(),
+  posts: DS.hasMany('post', {async: false})
 });

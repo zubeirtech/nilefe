@@ -1,6 +1,9 @@
-<h1 class="ui header" id="white">
-  {{model.channelname}} Videos
-</h1> <br>
+<h1 class="ui header">
+  <img class="ui image" src="{{model.image_url}}">
+  <div class="content">
+    {{model.channelname}} Videos
+  </div>
+</h1><br>
 <div class="ui three special stackable link cards">
   {{#each model.posts as |post|}}
     {{#link-to 'watch.video' post.id class="ui card"}}

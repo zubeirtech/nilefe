@@ -1,1 +1,48 @@
-{{outlet}}
+<h1 class="ui header" id="white">
+  {{model.channelname}} Videos
+</h1> <br>
+<div class="ui three special stackable link cards">
+  {{#each model.posts as |post|}}
+    {{#link-to 'watch.video' post.id class="ui card"}}
+      <div class="blurring dimmable image">
+        <div class="ui dimmer">
+          <div class="content">
+            <div class="center">
+              {{#link-to "watch.video" post.id}}
+                <div class="ui inverted button">Play Video</div>
+              {{/link-to}}
+            </div>
+          </div>
+        </div>
+        <img class="visible content" src="http://localhost:5000/api/images?image={{post.thumbnail_url}}">
+      </div>
+      <div class="content">
+        <div id="white" class="header">{{post.title}}</div>
+        <div class="meta">
+          <a id="lgrey" >{{moment-from-now post.created_at}}</a>
+        </div>
+        <div class="description" id="stopper">
+          {{post.description}}
+        </div>
+      </div>
+      <div class="extra content">
+        <span class="right floated author">
+          <img class="ui avatar image" src="http://localhost:5000/api/images?image={{post.channel.image_url}}">  {{post.channel.channelname}}
+        </span>
+        <span>
+          <i class="eye icon"></i>
+          {{post.views}} 
+        </span>
+      </div>
+    {{/link-to}}
+  {{/each}}
+</div>
+<br>
+<br>
+<br>
+<br>
+<script>
+  $('.special.cards .image').dimmer({
+    on: 'hover'
+  });
+</script>

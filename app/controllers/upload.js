@@ -73,9 +73,14 @@ export default Controller.extend({
     },
 
     finalize() {
-      set(this, 'load', true);
-      get(this, 'finishline').perform(this.files);
-      set(this, 'load', false);
+      if (this.model.title) {
+        set(this, 'load', true);
+        get(this, 'finishline').perform(this.files);
+        set(this, 'load', false);
+      } else{
+        set(this, 'load', false);
+        this.toastr.warning('Please fill in title', 'Warning')
+      }
     }
 
   }

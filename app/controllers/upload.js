@@ -28,8 +28,8 @@ export default Controller.extend({
 
     set(files.video, 'name', files.video.id + '.' + files.video.extension)
 
-    set(this.model, 'thumbnail_url', files.image.name);
-    set(this.model, 'video_url', files.video.name);
+    set(this.model, 'thumbnail_url', `https://storage.cloud.google.com/thenile/${files.image.name}`);
+    set(this.model, 'video_url', `https://storage.cloud.google.com/thenile/${files.video.name}`);
 
     try {
       const { image, video } = files;
@@ -38,7 +38,7 @@ export default Controller.extend({
       yield image.upload(`${ENV.host}/api/upload`);
       
       yield this.model.save();
-      files = {}
+      set(this, 'files', {});
       this.router.transitionTo('index')
     } catch (e) {
       console.error(e);

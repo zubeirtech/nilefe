@@ -39,4 +39,8 @@
 </div>
 <br>
 <br>
-<button id="logbutton" class="ui {{if load "loading"}} {{if (and files.image files.video model.title model.description) "" "disabled"}} button" {{action "finalize"}}>Post it !</button>
+{{#if loader}}
+  <button id="logbutton" class="ui loading button">Post it</button> Just a moment, video is uploading
+{{else}}
+  <button id="logbutton" class="ui  {{if (and files.image files.video model.title model.description) "" "disabled"}} {{if loader "loading"}} button" {{action "finalize"}}>Post it !</button>
+{{/if}}

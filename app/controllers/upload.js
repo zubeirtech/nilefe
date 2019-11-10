@@ -14,6 +14,7 @@ export default Controller.extend({
   },
 
   finishline: task(function* (files) {
+    set(this, 'loader', true);
     set(this.model, 'meta', {});
     const { meta } = this.model;
     set(meta, 'video_originalname', get(files.video, 'name'));
@@ -39,18 +40,19 @@ export default Controller.extend({
       
       yield this.model.save();
       set(this, 'files', {});
+      set(this, 'loader', false);
       this.router.transitionTo('index')
     } catch (e) {
+      set(this, 'loader', false);
       console.error(e);
     }
+
   }).maxConcurrency(3).enqueue(),
 
   actions: {
     uploadImage(image) {
       try {
-        set(this, 'load', true);
         set(this.files, 'image', image);
-        set(this, 'load', false);
         this.toastr.success(`Uploaded ${image.name}`, 'Success');
       } catch (error) {
         console.log(error);
@@ -61,9 +63,7 @@ export default Controller.extend({
 
     uploadVideo(video) {
       try {
-        set(this, 'load', true);
         set(this.files, 'video', video);
-        set(this, 'load', false);
         this.toastr.success(`Uploaded ${video.name}`, 'Success');
       } catch (error) {
         console.log(error);
@@ -74,11 +74,9 @@ export default Controller.extend({
 
     finalize() {
       if (this.model.title) {
-        set(this, 'load', true);
         get(this, 'finishline').perform(this.files);
-        set(this, 'load', false);
       } else{
-        set(this, 'load', false);
+        set(this, 'loader', false);
         this.toastr.warning('Please fill in title', 'Warning')
       }
     }

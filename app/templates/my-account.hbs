@@ -1,3 +1,63 @@
 <div class="ui mobile only padded grid">
   <button class="ui inverted circular button" {{action "invalidate"}}>Logout</button>
 </div>
+<div class="ui secondary inverted pointing menu">
+  <a class="{{if profile "active" ""}} item"  {{action (mut about) false}} {{action (mut profile) true}}>
+    My profile
+  </a>
+  <a class="{{if about "active" ""}} item" {{action (mut profile) false}} {{action (mut about) true}} >
+    About
+  </a>
+</div>
+<br>
+{{#if profile}}
+  <div class="ui circular small image">
+    <img src="http://localhost:5000/api/images?image={{model.image_url}}" alt="profilepicture">
+  </div>
+  <br><br>
+  {{#file-upload name="image"
+                 accept="image/*"
+                 onfileadd=(action "finalize") as |queue|}}
+    <a role="button" id="logbutton" class="ui {{if load "loading"}} button">
+      Upload Thumbnail
+    </a>
+  {{/file-upload}}
+  <br>
+  <h1 class="ui header" id="white">
+    {{model.channelname}}
+  </h1>
+  <form action="" class="ui form">
+    <div class="field">
+      {{input value=model.firstname placeholder="Enter firstname..." focusOut=(action "save")}}
+    </div>
+    <div class="field">
+      {{input value=model.lastname placeholder="Enter lastname..." focusOut=(action "save")}}
+    </div>
+    <div class="field">
+      {{textarea value=model.biography placeholder="Enter biography" focusOut=(action "save")}}
+    </div>
+  </form>
+{{/if}}
+{{#if about}}
+  <img class="ui small left floated image" src="https://imgur.com/9Mc3IiI.png" alt="zubeir mohamed">
+  <p>
+    I wanted to learn about file systems and streaming videos to the client, and the app is the outcome, have fun :))
+    <br><br>
+    My name is Zubeir Mohamed I am studying Data Science and AI at the University of Saarland, Germany. I work as an intern software developer and started coding {{moment-from-now "2019-08-01"}}. Since then, my life pretty much revolves around programming. 
+    <br> <br>
+    Here you can find all my social links, let's connect :)
+  </p>
+  <a href="mailto: zubeir.mohamed@outlook.de" rel="noopener" target="_blank" id="social-links">
+    <i class="mail icon"></i>
+  </a>
+  <a href="https://www.linkedin.com/in/zubeir-mohamed-29668217b/" rel="noopener" target="_blank" id="social-links">
+    <i class="linkedin icon"></i>      
+  </a>
+  <a href="https://twitter.com/zubeirtech" rel="noopener" target="_blank" id="social-links"> 
+    <i class="twitter icon"></i>
+  </a>
+  <a href="https://github.com/zubeir68" rel="noopener" target="_blank" id="social-links">
+    <i class="github icon"></i>
+  </a>
+{{/if}}
+

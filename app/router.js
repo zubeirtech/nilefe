@@ -18,7 +18,7 @@ Router.map(function() {
   });
 
   this.route('channels', function() {
-    this.route('channel');
+    this.route('channel', { path: ':channel_id' });
   });
 });
 

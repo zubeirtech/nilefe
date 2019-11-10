@@ -7,15 +7,14 @@ export default Route.extend({
   toastr: service('toast'),
 
   async afterModel(model) {
-    if (this.session.isAuthenticated) {
-      
-      try {
+    try {
+      const getComments = await this.store.query('comment', {
+        post_id: model.id
+      })
+      if (this.session.isAuthenticated) {
         const getCurrentUser = await this.store.queryRecord('channel', {
           access_token: this.session.data.authenticated.access_token,
         });
-        const getComments = await this.store.query('comment', {
-          post_id: model.id
-        })
         set(model, 'currentUser', getCurrentUser);
         set(model, 'comments', getComments);
         const record = await this.store.queryRecord('upvote', {
@@ -26,10 +25,10 @@ export default Route.extend({
         } else {
           set(model, 'liked', false)
         }        
-      } catch (error) {
-        console.log(error);
-        this.toastr.error('Something went wrong', 'Error');
       }
+    } catch (error) {
+      console.log(error);
+      this.toastr.error('Something went wrong', 'Error');
     }
   }
 });

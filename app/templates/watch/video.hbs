@@ -55,7 +55,7 @@
         <img src="http://localhost:5000/api/images?image={{comment.channel.image_url}}">
       </a>
       <div class="content">
-        {{#link-to "channels.channel" class="author slgrey"}}
+        {{#link-to "channels.channel" comment.channel.id class="author slgrey"}}
           {{comment.channel.channelname}}
         {{/link-to}}
         <div class="metadata">

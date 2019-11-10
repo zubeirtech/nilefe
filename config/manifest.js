@@ -5,8 +5,8 @@ module.exports = function(/* environment, appConfig */) {
   // supported properties
 
   return {
-    name: "nilefe",
-    short_name: "nilefe",
+    name: "The Nile",
+    short_name: "The Nile",
     description: "",
     start_url: "/",
     display: "standalone",

@@ -29,8 +29,8 @@ export default Controller.extend({
 
     set(files.video, 'name', files.video.id + '.' + files.video.extension)
 
-    set(this.model, 'thumbnail_url', `https://storage.cloud.google.com/thenile/${files.image.name}?folder&organizationId`);
-    set(this.model, 'video_url', `https://storage.cloud.google.com/thenile/${files.video.name}?folder&organizationId`);
+    set(this.model, 'thumbnail_url', `https://storage.googleapis.com/thenile/${files.image.name}`);
+    set(this.model, 'video_url', `https://storage.googleapis.com/thenile/${files.video.name}`);
 
     try {
       const { image, video } = files;

@@ -6,8 +6,8 @@ export default Route.extend(AuthenticatedRouteMixin, {
   session: service(),
 
   model() {
-    return this.store.queryRecord('channel', {
-      access_token: this.session.data.authenticated.access_token
-    })
+    return this.store.findAll('channel').then(channel => {
+      return channel.firstObject
+    });
   }
 });

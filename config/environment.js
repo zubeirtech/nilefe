@@ -58,7 +58,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.host = 'http://localhost:5000',
+    ENV.host = 'https://api-thenile.herokuapp.com',
     ENV['ember-simple-auth'] = {
       serverTokenEndpoint: 'https://api-thenile.herokuapp.com/api/auth',
       routeAfterAuthentication: 'index'

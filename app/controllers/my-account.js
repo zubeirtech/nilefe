@@ -18,7 +18,7 @@ export default Controller.extend({
 
     set(file, 'name', file.id + '.' + file.extension)
 
-    set(this.model, 'image_url', `https://storage.cloud.google.com/thenile/${file.name}`);
+    set(this.model, 'image_url', `https://storage.googleapis.com/thenile/${file.name}`);
 
     try {
 
